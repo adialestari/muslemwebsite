@@ -1,0 +1,83 @@
+{% extends 'front/baseFront.html' %} {% load static %} {% block konten %}
+<div class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="image_1">
+          <img
+            src="{% static 'front/images/solat/doacuy.png '%}"
+            style="width: 400px"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1 class="about_text">Perintah Berdoa</h1>
+        <p class="lorem_text">
+          لِيَسْئَلْ أَحَدُكُمْ رَبَّهُ حَاجَتَهُ أَوْ حَوَائِجَهُ كُلَّهَا
+          حَتَّى يَسْأَلَهُ شِسْعَ نَعْلِهِ إِذَا انْقَطَعَ وَحَتَّى يَسْأَلَهُ
+          الْمِلْحَ
+          <br />
+          <br />
+          “Hendaklah salah seorang diantara kamu sekalian meminta kepada
+          Tuhannya akan segala kebutuhannya hingga meminta tali sandalnya yang
+          putus atau sampai meminta garam sekalipun.” (HR. At-Tirmidzi no. 3604,
+          dalam Silsilah adh–Dha’ifah [1362] al-Albani mengatakan: “hadits ini
+          dhaif”)
+          <br />
+          <br />
+          Allah Ta’ala memerintahkan segenap hamba-Nya untuk memperbanyak doa
+          dan permohonan kepada Allah Ta’ala. Sering berdoa kepada Allah ‘Azza
+          wa Jalla merupakan indikasi betapa ia hamba yang sangat butuh
+          pertolongan dari-Nya. Orang yang selalu berdoa, dia hakikatnya
+          memperbanyak ibadah kepada-Nya, dan juga seorang insan yang begitu
+          mencintai Dzat Yang Maha Mengabulkan doa.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="layout_padding">
+  <div class="container">
+    <div class="title text-center">
+      <img
+        src="{% static 'front/images/kali1.png'%}"
+        alt=""
+        style="width: 200px"
+        class="text-center"
+      />
+      <h1 class="text-center my-5">Macam-Macam Doa</h1>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="accordion my-5" id="accordionExample">
+      {% for r in baca %}
+      <div class="card mt-3 border">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-link btn-block text-left text-dark font-weight-bold"
+              type="button"
+              data-toggle="collapse"
+              data-target="#{{r.idcol}}"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              + {{r.judul}}
+            </button>
+          </h2>
+        </div>
+
+        <div
+          id="{{r.idcol}}"
+          class="collapse"
+          aria-labelledby="headingOne"
+          data-parent="#accordionExample"
+        >
+          <div class="card-body">{{r.deskripsi | safe}}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock konten %}

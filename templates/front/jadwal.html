@@ -1,0 +1,33 @@
+{% extends 'front/baseFront.html' %} {% load static %} {% block konten %}
+
+<div class="layout_padding">
+  <div class="container">
+    <div class="title text-center">
+      <img
+        src="{% static 'front/images/kali1.png'%}"
+        alt=""
+        style="width: 200px"
+        class="text-center"
+      />
+      <h1 class="text-center my-5">Pencarian Jadwal - Jadwal Solat</h1>
+    </div>
+  </div>
+  <div class="container-fluid py-5">
+    <div class="accordion my-5" id="accordionExample">
+      <form action="{% url 'searchjadwal' %}" method="post">
+        {% csrf_token %}
+        <select
+          class="custom-select custom-select-lg mb-3"
+          onchange="this.form.submit()"
+          name="sola"
+        >
+          <option selected>Cari Jadwal Solat Menurut Kota</option>
+          {% for j in jadwal %}
+          <option value="{{j.idsholat}}">{{j.lokasi}}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock konten %}

@@ -1,0 +1,40 @@
+{% extends 'front/baseFront.html' %} {% load static %} {% block konten %}
+<div class="me_section layout_padding">
+  <div class="trans">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div
+            class="image_1 text-center"
+            style="z-index: 2; position: relative"
+          >
+            <img
+              src="{% static 'front/images/adiya.jpeg'%}"
+              style="width: 400px"
+              class="border rounded-circle"
+            />
+          </div>
+        </div>
+        <div class="col-md-12" style="z-index: 1; position: relative">
+          <h1 class="about_text text-center">Data Diri</h1>
+          <h1 class="about_text text-center">ADIA LESTARI - 2011102441149</h1>
+          <p class="lorem_text">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+            <br />
+            <br />
+            Assalamu'alaikum semua, nama saya Adia Lestari. Saya adalah
+            mahasiswa Universitas Muhammadiyah Kalimantan timur. NIM saya adalah
+            2011102441149
+            <br />
+            <br />
+            Website ini saya buat dengan harapan dapat bermanfaat bagi para
+            warga samarinda yang muslim untuk mengetahui informasi tentang
+            sholat dan informasi lainnya.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock konten %}

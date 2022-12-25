@@ -1,0 +1,83 @@
+{% extends 'front/baseFront.html' %} {% load static %} {% block konten %}
+<div class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="about_text">Keutamaan Solat</h1>
+        <p class="lorem_text">
+          Dari ‘Abdullah bin ‘Amr Radhiyallahu anhuma , diriwayatkan bahwa suatu
+          hari Nabi Shallallahu ‘alaihi wa sallam membicarakan tentang shalat
+          lalu Beliau Shallallahu ‘alaihi wa sallam bersabda:
+          <br />
+          <br />
+          مَنْ حَافَظَ عَلَيْهَا كَانَتْ لَهُ نُوراً وَبُرْهَاناً وَنَجَاةً
+          يَوْمَ الْقِيَامَةِ وَمَنْ لَمْ يُحَافِظْ عَلَيْهَا لَمْ يَكُنْ لَهُ
+          نُورٌ وَلاَ بُرْهَانٌ وَلاَ نَجَاةٌ وَكَانَ يَوْمَ الْقِيَامَةِ مَعَ
+          قَارُونَ وَفِرْعَوْنَ وَهَامَانَ وَأُبَىِّ بْنِ خَلَفٍ
+          <br />
+          <br />
+          Barangsiapa yang menjaga shalat lima waktu, maka shalat itu akan
+          menjadi cahaya, bukti dan keselamatan baginya pada hari kiamat. Dan
+          barangsiapa yang tidak menjaganya, maka ia tidak mendapatkan cahaya,
+          bukti, dan juga tidak mendapat keselamatan. Dan pada hari kiamat,
+          orang yang tidak menjaga shalatnya itu akan bersama Qarun, Fir’aun,
+          Haman, dan Ubay bin Khalaf.(HR. Ahmad)
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="image_1">
+          <img
+            src="{% static 'front/images/solat/tuu.png '%}"
+            style="width: 400px"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="layout_padding">
+  <div class="container">
+    <div class="title text-center">
+      <img
+        src="{% static 'front/images/kali1.png'%}"
+        alt=""
+        style="width: 200px"
+        class="text-center"
+      />
+      <h1 class="text-center my-5">Bacaan-Bacaan Doa Dalam Solat</h1>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="accordion my-5" id="accordionExample">
+      {% for r in baca %}
+
+      <div class="card mt-3 border">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-link btn-block text-left text-dark font-weight-bold"
+              type="button"
+              data-toggle="collapse"
+              data-target="#{{r.idcol}}"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              + {{r.judul}}
+            </button>
+          </h2>
+        </div>
+
+        <div
+          id="{{r.idcol}}"
+          class="collapse"
+          aria-labelledby="headingOne"
+          data-parent="#accordionExample"
+        >
+          <div class="card-body">{{r.deskripsi | safe}}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock konten %}

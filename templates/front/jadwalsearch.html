@@ -1,0 +1,124 @@
+{% extends 'front/baseFront.html' %} {% load static %} {% block konten %}
+
+<div class="layout_padding">
+  <div class="container">
+    <div class="title text-center">
+      <img
+        src="{% static 'front/images/kali1.png'%}"
+        alt=""
+        style="width: 200px"
+        class="text-center"
+      />
+    </div>
+  </div>
+  <div class="container-fluid py-5">
+    <div class="accordion my-5" id="accordionExample">
+      <form action="" method="post">
+        {% csrf_token %}
+        <select
+          class="custom-select custom-select-lg mb-3"
+          onchange="this.form.submit()"
+          name="sola"
+        >
+          <option selected>Cari Jadwal Solat Menurut Kota</option>
+          {% for j in jadwal %}
+          <option value="{{j.idsholat}}">{{j.lokasi}}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </div>
+  </div>
+  <div class="services_section layout_padding">
+    <div class="container">
+      <h1 class="services_taital font-weight-bold">jadwal solat</h1>
+      <p class="many_taital h4">
+        Jadwal solat untuk daerah {{data.lokasi}} dan sekitarnya
+      </p>
+      <div class="services_section2 layout_padding">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-4 col-sm-6 mt-3">
+            <div class="icon_1">
+              <img
+                src="{% static 'front/images/subuh.png'%}"
+                style="width: 250px"
+              />
+            </div>
+            <h2 class="furnitures_text">SUBUH</h2>
+            <p class="dummy_text">Best Time For Sedekah</p>
+            <div class="read_bt_main">
+              <div class="read_bt font-weight-bold text-light">
+                <a>{{data.subuh}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mt-3">
+            <div class="icon_1">
+              <img
+                src="{% static 'front/images/dzuhur.png'%}"
+                style="width: 250px"
+              />
+            </div>
+            <h2 class="furnitures_text">DZUHUR</h2>
+            <p class="dummy_text">Time to Pray Spared From the Fire of Hell</p>
+            <div class="read_bt_main">
+              <div class="read_bt font-weight-bold text-light">
+                <a>{{data.zuhur}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mt-3">
+            <div class="icon_1">
+              <img
+                src="{% static 'front/images/asar.png'%}"
+                style="width: 250px"
+              />
+            </div>
+            <h2 class="furnitures_text">ASAR</h2>
+            <p class="dummy_text">the Best Practice to Ask Heaven</p>
+            <div class="read_bt_main">
+              <div class="read_bt font-weight-bold text-light">
+                <a>{{data.asar}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mt-5">
+            <div class="icon_1">
+              <img
+                src="{% static 'front/images/magrib.png'%}"
+                style="width: 250px"
+              />
+            </div>
+            <h2 class="furnitures_text">MAGHRIB</h2>
+            <p class="dummy_text">
+              Best Time to Pray Because God Will Grant it And you Will Get the
+              Blessing
+            </p>
+            <div class="read_bt_main">
+              <div class="read_bt font-weight-bold text-light">
+                <a>{{data.maghrib}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mt-5">
+            <div class="icon_1">
+              <img
+                src="{% static 'front/images/isya.png'%}"
+                style="width: 250px"
+              />
+            </div>
+            <h2 class="furnitures_text">ISYA</h2>
+            <p class="dummy_text">
+              the Best Prayer Like Half-Night Sunnah Prayer
+            </p>
+            <div class="read_bt_main">
+              <div class="read_bt font-weight-bold text-light">
+                <a>{{data.isya}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock konten %}
